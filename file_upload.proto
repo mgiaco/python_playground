@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package fileupload;
+
+message DataChunks {
+    bytes data = 1;
+}
+
+message UploadStatus {
+    string status = 1;
+}
+
+service Upload {
+    rpc Upload (stream DataChunks) returns (UploadStatus) {}
+}
